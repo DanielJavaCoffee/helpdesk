@@ -3,10 +3,12 @@ package com.valdir.helpdesk.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.valdir.helpdesk.domain.enums.Perfil;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
-@Entity(name = "tb_cleinte")
+@Entity()
 public class Cliente extends Pessoa {
 	
 
@@ -17,10 +19,12 @@ public class Cliente extends Pessoa {
 
 	public Cliente() {
 		super();
+		addPerfis(Perfil.CLIENTE);
 	}
 
 	public Cliente(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
+		addPerfis(Perfil.CLIENTE);
 	}
 
 	public List<Chamado> getChamados() {

@@ -19,7 +19,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity(name = "tb_pessoa")
+@Entity()
 public abstract class Pessoa implements Serializable{
 	
 

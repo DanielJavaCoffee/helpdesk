@@ -8,7 +8,7 @@ import com.valdir.helpdesk.domain.enums.Perfil;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
-@Entity(name = "tb_tecnico")
+@Entity()
 public class Tecnico extends Pessoa{
 
 	private static final long serialVersionUID = 1L;
