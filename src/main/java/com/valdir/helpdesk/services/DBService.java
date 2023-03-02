@@ -1,4 +1,4 @@
-package com.valdir.helpdesk;
+package com.valdir.helpdesk.services;
 
 import java.util.Arrays;
 
