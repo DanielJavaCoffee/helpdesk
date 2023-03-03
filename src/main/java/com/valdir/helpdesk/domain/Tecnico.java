@@ -2,8 +2,10 @@ package com.valdir.helpdesk.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.valdir.helpdesk.domain.dtos.TecnicoDTO;
 import com.valdir.helpdesk.domain.enums.Perfil;
 
 import jakarta.persistence.Entity;
@@ -26,6 +28,17 @@ public class Tecnico extends Pessoa{
 	public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
 		addPerfis(Perfil.TECNICO);
+	}
+	
+	public Tecnico(TecnicoDTO tecnico) {
+		super();
+		this.id = tecnico.getId();
+		this.nome = tecnico.getNome();
+		this.cpf = tecnico.getCpf();
+		this.email = tecnico.getEmail();
+		this.senha = tecnico.getSenha();
+		this.perfis = tecnico.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
+		this.dataCriacao = tecnico.getDataCriacao();
 	}
 
 	public List<Chamado> getChamados() {
